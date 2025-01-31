@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  ollama:
+    build: .
+    container_name: ollama-llm
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+
+volumes:
+  ollama-data:
+    driver: local
